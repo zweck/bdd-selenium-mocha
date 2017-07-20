@@ -15,5 +15,8 @@
   },
   "author": "Phil Hauser",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/planixstalent/acceptance-tests#readme"
+  "homepage": "https://bitbucket.org/planixstalent/acceptance-tests#readme",
+  "dependencies": {
+    "selenium-webdriver": "^3.4.0"
+  }
 }
