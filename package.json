@@ -1,0 +1,19 @@
+{
+  "name": "talent-selenium",
+  "version": "0.0.1",
+  "description": "This repo is for the talent selenium tests",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/planixstalent/acceptance-tests.git"
+  },
+  "author": "Phil Hauser",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/planixstalent/acceptance-tests#readme"
+}
