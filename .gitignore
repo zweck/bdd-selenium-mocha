@@ -27,3 +27,6 @@ src/config.prototype.json
 
 # vscode 
 .vscode
+
+# proxy server certs
+./ssl

@@ -1,25 +1,26 @@
 const http = require('http');
+const fs = require('fs');
+const https = require('https');
+const url = require('url');
 const httpProxy = require('http-proxy');
+
 const config = require('./config.json');
+const { APP_URL, AUTH_USER, PROXY_PORT } = config;
 
-const { APP_URL, AUTH_USER } = config;
+const PORT = PROXY_PORT || 9009;
 
-//
-// Create a proxy server with custom application logic
-//
-const proxy = httpProxy.createProxyServer({});
+const host = url.parse(APP_URL).host;
 
-proxy.on('proxyReq', (proxyReq, req, res, options) => {
-  proxyReq.setHeader('Accenture-identity', AUTH_USER);
-});
-
-var server = http.createServer((req, res) => {
-  // You can define here your custom logic to handle the request
-  // and then proxy the request.
-  proxy.web(req, res, {
-    target: APP_URL
-  });
-});
-
-console.log("listening on port 443")
-server.listen(443);
+console.log(`listening on port ${PORT}`)
+httpProxy.createProxyServer({
+  agent: https.globalAgent,
+  target: APP_URL,
+  headers: {
+    host,
+    'Accenture-Identity': AUTH_USER
+  }
+})
+.on('error', function(proxyRes, req, res) {
+  console.log('error', proxyRes)
+})
+.listen(PORT);
