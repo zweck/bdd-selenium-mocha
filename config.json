@@ -1,6 +1,6 @@
 {
   "APP_URL" : "https://develop.ui.talent.planixsops.com",
-  "PROXY_PORT" : 9009,
+  "PROXY_PORT" : 8080,
   "AUTH_USER" : "admin",
   "BUSINESS_GOAL_DRAFT_ID" : 34,
   "DETAILED_PLAN_DRAFT_ID" : 93,
