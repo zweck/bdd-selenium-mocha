@@ -1,13 +1,13 @@
 'use strict';
 const assert = require('assert');
 const { Builder, By, promise, until } = require('selenium-webdriver');
-const proxy = require('selenium-webdriver/proxy');
+const chalk = require('chalk');
 const config = require('./config.json');
-const allTests = require('./tests');
+const allTests = require('./sequences');
 
 promise.USE_PROMISE_MANAGER = false;
 
-const { PROXY_PORT } = config;
+console.log(chalk.black.bgGreen.bold(`     Running Sequence Tests     `))
 
 describe( 'Test runner', () => {
 
@@ -32,7 +32,7 @@ describe( 'Test runner', () => {
       testSuite.tests.forEach( test => {
         it( test.it, async () => {
           for ( let step of test.sequence ){
-            await step(driver, { element: testSuite.element, name: testSuite.name });
+            await step( driver, { rootElement: testSuite.rootElement, name: testSuite.name });
           }
 
           for ( let assertion of test.asserts ){
