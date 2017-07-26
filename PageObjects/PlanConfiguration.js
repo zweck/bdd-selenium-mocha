@@ -1,3 +1,5 @@
+/** @module PageObjects/PlanConfiguration */
+
 const { By, until, Condition } = require('selenium-webdriver');
 const { DEFAULT_WAIT_TIME } = require('../config');
 const error = require('../lib/error');
@@ -16,6 +18,11 @@ const PLAN_NAME = '#draftName';
 const CLEAR_CONFIG_BUTTON = 'button.clear-config';
 
 // Actions
+
+/**
+ * Action to click a button in the PlanConfiguration header with the label 'New Blank Draft'
+ * @param {function} driver The driver instance for that test
+ */
 async function clickNewBlankDraft( driver ){
   const newBlankDraftWithConfigButton = await driver.wait(until.elementLocated(By.xpath("//*[contains(text(), 'New Draft With Config')]")), DEFAULT_WAIT_TIME, 'No new draft with config button found');
   const newBlankDraftButton = await driver.wait(until.elementLocated(By.xpath("//*[contains(text(), 'New Blank Draft')]")), DEFAULT_WAIT_TIME, 'No new draft button found');
@@ -24,6 +31,13 @@ async function clickNewBlankDraft( driver ){
   newBlankDraftButton.click();
 }
 
+// Assertions
+
+/**
+ * Checks that the config is empty
+ * @param {function} driver The driver instance for that test
+ * @return {(Error|boolean)} returns either an error is the plan name object has length or returns true
+ */
 async function configIsEmpty( driver ){
   const emptyYearSelect = await driver.wait(until.elementLocated(By.css(EMPTY_YEAR_SELECT)), DEFAULT_WAIT_TIME, `Couldn't find empty year select`);
   const contractBasedSelect = await driver.wait(until.elementLocated(By.css(EMPTY_CONTRACT_BASED)), DEFAULT_WAIT_TIME, `Couldn't find contract based select`);
@@ -38,11 +52,17 @@ async function configIsEmpty( driver ){
   }
 }
 
+/**
+ * Checks that the config is empty
+ * @param {function} driver The driver instance for that test
+ * @return {boolean} returns true if no error is thrown
+ */
 async function clearConfigButtonExists( driver ){
   const clearConfigButton = await driver.wait(until.elementLocated(By.xpath("//*[contains(text(), 'Clear Config')]")), DEFAULT_WAIT_TIME, `Couldn't find clear config button`);
   return true;
 }
 
+/** export the PageObjects methods */
 module.exports = { 
   rootElement,
   name,
