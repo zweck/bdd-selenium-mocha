@@ -22,10 +22,13 @@ async function clickNewBlankDraft(driver){
 }
 
 async function configIsEmpty(driver){
-  const yearSelect = await driver.wait(until.elementLocated(By.css(YEAR_SELECT)), DEFAULT_WAIT_TIME, `Couldn't find year select`);
-  const selectedYear = await yearSelect.getText();
-  if( selectedYear.length ) error({ driver, message: `Year select isn't empty` });
-  return true
+  let yearSelect = await driver.wait(until.elementLocated(By.css(YEAR_SELECT)), DEFAULT_WAIT_TIME, `Couldn't find year select`);
+  yearSelect = driver.findElement(By.css(YEAR_SELECT));
+  if( yearSelect ) {
+    error({ driver, message: `Year select isn't empty` });
+  } else {
+    return true
+  }
 }
 
 function clickNewBlankDraftWithConfig(driver){
