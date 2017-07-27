@@ -1,4 +1,4 @@
-const { hasLoaded } = require('../../lib/helpers');
+const { pageHasLoadedWithPlan } = require('../../lib/helpers');
 const { goToBusinessGoalDraft } = require('../../lib/navigators');
 const { 
   rootElement, 
@@ -16,7 +16,7 @@ module.exports = {
     it: 'should clear the config when new blank draft is clicked',
     sequence: [
       goToBusinessGoalDraft,
-      hasLoaded,
+      pageHasLoadedWithPlan,
       clickNewBlankDraft,
     ],
     asserts: [
@@ -27,7 +27,7 @@ module.exports = {
     it: 'should show the Clear Config button in TSG when New Blank Draft is clicked',
     sequence: [
       goToBusinessGoalDraft,
-      hasLoaded,
+      pageHasLoadedWithPlan,
       clickNewBlankDraft,
     ],
     asserts: [
