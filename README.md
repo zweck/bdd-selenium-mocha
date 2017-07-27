@@ -6,7 +6,9 @@ This repo houses the end 2 end, integration, full stack selenium tests, ones tha
 
 It is a Node app, could of been a Python one but I don't know Python so I wrote it in Node, you are more than welcome to re-write it in whatever language you like if this offends you.
 
-So the first step is to make sure you have Node installed, preferrably v7.10.0 or above as we use `async`/`await`.
+So the first step is to make sure you have Node installed, preferrably v7.10.0 or above as we use `async`/`await`. If you are using `nvm` simply type:
+
+`nvm use`
 
 To run:
 
