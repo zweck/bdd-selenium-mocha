@@ -20,8 +20,10 @@ describe( 'Test runner', () => {
     driver.quit();
   });
 
-  afterEach(async function() {
-    await screenshot(this.currentTest, driver);
+  afterEach(function() {
+    if(this.currentTest.state === 'failed') {
+      screenshot(this.currentTest, driver);
+    }
   });
 
   describe( 'example test', () => {
