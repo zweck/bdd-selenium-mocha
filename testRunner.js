@@ -20,8 +20,8 @@ describe( 'Test runner', () => {
     driver.manage().window().setSize(1280, 720);
   });
 
-  after( function() {
-    driver.quit();
+  after(async function() {
+    await driver.quit();
   });
 
   afterEach(function() {
