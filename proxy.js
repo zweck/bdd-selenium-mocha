@@ -5,7 +5,7 @@ const url = require('url');
 const httpProxy = require('http-proxy');
 
 const config = require('./config.json');
-const { APP_URL, AUTH_USER, PROXY_PORT } = config;
+const { APP_URL, ADMIN_USER, PROXY_PORT } = config;
 
 const PORT = PROXY_PORT || 9009;
 
@@ -17,7 +17,7 @@ httpProxy.createProxyServer({
   target: APP_URL,
   headers: {
     host,
-    'Accenture-Identity': AUTH_USER
+    'Accenture-Identity': ADMIN_USER
   }
 })
 .on('error', function(proxyRes, req, res) {

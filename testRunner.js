@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const config = require('./config.json');
 const allTests = require('./sequences');
 const { screenshot } = require('./lib/utils.js');
+const Proxy = require('./lib/proxy.js');
 
 promise.USE_PROMISE_MANAGER = false;
 
@@ -13,16 +14,19 @@ console.log(chalk.black.bgGreen.bold(`     Running Sequence Tests     `))
 describe( 'Test runner', () => {
 
   let driver;
+  let proxy = new Proxy();
 
   before(async () => {
+    await proxy.start();
     driver = await new Builder()
       .forBrowser( 'chrome' )
       .build();
     driver.manage().window().setSize(1280, 720)
   });
 
-  after( function() {
-    driver.quit();
+  after(async function() {
+    await driver.quit();
+    await proxy.stop();
   });
 
   afterEach(function() {

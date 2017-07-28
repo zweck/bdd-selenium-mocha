@@ -1,7 +1,7 @@
 {
   "APP_URL" : "https://develop.ui.talent.planixsops.com",
   "PROXY_PORT" : 9009,
-  "AUTH_USER" : "admin",
+  "ADMIN_USER" : "admin",
   "BUSINESS_GOAL_DRAFT_ID" : 34,
   "DETAILED_PLAN_DRAFT_ID" : 93,
   "DEFAULT_WAIT_TIME" : 60000
