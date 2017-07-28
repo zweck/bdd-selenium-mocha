@@ -30,3 +30,6 @@ src/config.prototype.json
 
 # proxy server certs
 ./ssl
+
+# failure screenshots
+/screenshots
