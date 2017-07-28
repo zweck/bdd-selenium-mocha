@@ -1,12 +1,13 @@
+/* eslint-disable no-unused-vars */
 /** @module PageObjects/PlanConfiguration */
 
-const { By, until, Condition } = require('selenium-webdriver');
+const { By, until } = require('selenium-webdriver');
 const { DEFAULT_WAIT_TIME } = require('../config');
 const error = require('../lib/error');
 
 // Page Object Details
 const rootElement ='section.plan-configuration';
-const name = 'PlanConfiguration'
+const name = 'PlanConfiguration';
 
 // elements
 const EMPTY_YEAR_SELECT = '.financial-year-select .Select-placeholder';
@@ -24,9 +25,17 @@ const CLEAR_CONFIG_BUTTON = 'button.clear-config';
  * @param {function} driver The driver instance for that test
  */
 async function clickNewBlankDraft( driver ){
-  const newBlankDraftWithConfigButton = await driver.wait(until.elementLocated(By.xpath("//*[contains(text(), 'New Draft With Config')]")), DEFAULT_WAIT_TIME, 'No new draft with config button found');
-  const newBlankDraftButton = await driver.wait(until.elementLocated(By.xpath("//*[contains(text(), 'New Blank Draft')]")), DEFAULT_WAIT_TIME, 'No new draft button found');
-  const expandConfig = await driver.wait(until.elementLocated(By.css(EXPAND_CONFIG)), DEFAULT_WAIT_TIME, 'No expand config found');
+  const newBlankDraftWithConfigButton = await driver.wait(until.elementLocated(
+    By.xpath("//*[contains(text(), 'New Draft With Config')]")
+  ), DEFAULT_WAIT_TIME, 'No new draft with config button found');
+
+  const newBlankDraftButton = await driver.wait(until.elementLocated(
+    By.xpath("//*[contains(text(), 'New Blank Draft')]")
+  ), DEFAULT_WAIT_TIME, 'No new draft button found');
+
+  const expandConfig = await driver.wait(until.elementLocated(
+    By.css(EXPAND_CONFIG)
+  ), DEFAULT_WAIT_TIME, 'No expand config found');
   expandConfig.click();
   newBlankDraftButton.click();
 }
@@ -69,4 +78,4 @@ module.exports = {
   clickNewBlankDraft,
   configIsEmpty,
   clearConfigButtonExists
-}
+};
