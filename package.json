@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test" : "npm run lint&& npm run sequence-tests && npm run complex-tests",
+    "test" : "npm run lint && npm run sequence-tests && npm run complex-tests",
     "sequence-tests" : "mocha -t 120000 --harmony_async_await testRunner.js",
     "complex-tests" : "mocha -t 120000 --harmony_async_await tests/",
     "lint": "eslint **/*.js"
