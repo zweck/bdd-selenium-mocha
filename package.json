@@ -7,9 +7,17 @@
     "test": "tests"
   },
   "scripts": {
+<<<<<<< HEAD
     "test" : "npm run sequence-tests & npm run complex-tests",
     "sequence-tests" : "mocha -t 120000 --harmony_async_await testRunner.js",
     "complex-tests" : "mocha -t 120000 --harmony_async_await tests/"
+=======
+    "test": "npm run lint & npm run start-proxy & npm run sequence-tests & npm run complex-tests",
+    "start-proxy": "node proxy",
+    "sequence-tests": "mocha -t 120000 --harmony_async_await testRunner.js",
+    "complex-tests": "mocha -t 120000 --harmony_async_await tests/",
+    "lint": "eslint **/*.js"
+>>>>>>> develop
   },
   "repository": {
     "type": "git",
@@ -26,5 +34,9 @@
     "mocha": "^3.4.2",
     "nodemon": "^1.11.0",
     "selenium-webdriver": "^3.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.3.0"
   }
 }
+

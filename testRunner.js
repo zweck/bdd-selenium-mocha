@@ -1,15 +1,14 @@
-'use strict';
-const assert = require('assert');
-const { Builder, By, promise, until } = require('selenium-webdriver');
-const chalk = require('chalk');
-const config = require('./config.json');
-const allTests = require('./sequences');
+/* eslint-env mocha */
+const assert = require( 'assert' );
+const { Builder, promise, } = require( 'selenium-webdriver' );
+const chalk = require( 'chalk' );
+const allTests = require( './sequences' );
 const { screenshot } = require('./lib/utils.js');
 const Proxy = require('./lib/proxy.js');
 
 promise.USE_PROMISE_MANAGER = false;
 
-console.log(chalk.black.bgGreen.bold(`     Running Sequence Tests     `))
+console.log(chalk.black.bgGreen.bold(`     Running Sequence Tests     `));
 
 describe( 'Test runner', () => {
 
@@ -21,12 +20,15 @@ describe( 'Test runner', () => {
     driver = await new Builder()
       .forBrowser( 'chrome' )
       .build();
-    driver.manage().window().setSize(1280, 720)
+    driver.manage().window().setSize(1280, 720);
   });
 
   after(async function() {
     await driver.quit();
+<<<<<<< HEAD
     await proxy.stop();
+=======
+>>>>>>> develop
   });
 
   afterEach(function() {

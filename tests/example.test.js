@@ -1,6 +1,6 @@
-'use strict';
+/* eslint-env mocha */
 const assert = require('assert');
-const { Builder, By, promise, until } = require('selenium-webdriver');
+const { Builder, promise } = require('selenium-webdriver');
 const { screenshot } = require('../lib/utils.js');
 const Proxy = require('../lib/proxy.js');
 
@@ -16,12 +16,15 @@ describe( 'Test runner', () => {
     driver = await new Builder()
       .forBrowser( 'chrome' )
       .build();
-    driver.manage().window().setSize(1280, 720)
+    driver.manage().window().setSize(1280, 720);
   });
 
   after(async () => {
     await driver.quit();
+<<<<<<< HEAD
     await proxy.stop();
+=======
+>>>>>>> develop
   });
 
   afterEach(function() {
