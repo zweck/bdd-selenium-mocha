@@ -11,7 +11,7 @@ const {
 module.exports = {
   name,
   rootElement,
-  describe: 'Creating a new draft from the config when a draft is loaded',
+  describe: 'Creating a new draft TSG from the config when a draft is loaded',
   tests: [
     {
       it: 'should clear the config when new blank draft is clicked',
