@@ -26,7 +26,7 @@ module.exports = {
   ],
   // Add some rules of our own
   "rules": {
-    "indent": ["error", 2, { "SwitchCase": 1 }], // Two spaces for indent
+    "indent": ["error", 2, { "SwitchCase": 1, "MemberExpression": off }], // Two spaces for indent
     "curly": ["error", "multi-line"], // All require curly brace for multi line bodies
     "no-template-curly-in-string": "error", // Guard against accidentally using quotes instead of backticks when writing template strings
     "array-callback-return": "error", // Enforce returning from array functions (map, filter, etc)
