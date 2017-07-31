@@ -21,10 +21,7 @@ describe( 'Test runner', () => {
 
   after(async () => {
     await driver.quit();
-<<<<<<< HEAD
     await proxy.stop();
-=======
->>>>>>> develop
   });
 
   afterEach(function() {

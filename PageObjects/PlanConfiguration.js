@@ -26,10 +26,9 @@ const CLEAR_CONFIG_BUTTON = 'button.clear-config';
  */
 async function clickNewBlankDraft( driver ){
   const newBlankDraftWithConfigButton = await driver.wait(until.elementLocated(
-<<<<<<< HEAD
     By.xpath("//*[contains(text(), 'New Draft With Config')]")),
     DEFAULT_WAIT_TIME, 'No new draft with config button found');
-    
+
   const newBlankDraftButton = await driver.wait(until.elementLocated(
     By.xpath("//*[contains(text(), 'New Blank Draft')]")),
     DEFAULT_WAIT_TIME, 'No new draft button found');
@@ -38,18 +37,6 @@ async function clickNewBlankDraft( driver ){
     By.css(EXPAND_CONFIG)),
     DEFAULT_WAIT_TIME, 'No expand config found');
 
-=======
-    By.xpath("//*[contains(text(), 'New Draft With Config')]")
-  ), DEFAULT_WAIT_TIME, 'No new draft with config button found');
-
-  const newBlankDraftButton = await driver.wait(until.elementLocated(
-    By.xpath("//*[contains(text(), 'New Blank Draft')]")
-  ), DEFAULT_WAIT_TIME, 'No new draft button found');
-
-  const expandConfig = await driver.wait(until.elementLocated(
-    By.css(EXPAND_CONFIG)
-  ), DEFAULT_WAIT_TIME, 'No expand config found');
->>>>>>> develop
   expandConfig.click();
   newBlankDraftButton.click();
 }
