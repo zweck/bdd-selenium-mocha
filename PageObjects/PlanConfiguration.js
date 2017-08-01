@@ -2,8 +2,10 @@
 /** @module PageObjects/PlanConfiguration */
 
 const { By, until } = require('selenium-webdriver');
-const { DEFAULT_WAIT_TIME } = require('../config');
 const error = require('../lib/error');
+require('dotenv').config();
+
+const DEFAULT_WAIT_TIME = parseInt(process.env.DEFAULT_WAIT_TIME);
 
 // Page Object Details
 const rootElement ='section.plan-configuration';

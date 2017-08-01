@@ -22,6 +22,7 @@
   "dependencies": {
     "chalk": "^2.0.1",
     "chromedriver": "^2.30.1",
+    "dotenv": "^4.0.0",
     "http-proxy": "^1.16.2",
     "https": "^1.0.0",
     "mocha": "^3.4.2",
@@ -32,4 +33,3 @@
     "eslint": "^4.3.0"
   }
 }
-

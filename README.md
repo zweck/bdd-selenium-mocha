@@ -1,4 +1,4 @@
-### Selenium e2e tests
+## Selenium e2e tests
 
 **This code was written by a human and could therefore be much better, please feel free to tear it appart, refactor and generally make it better in PR's**
 
@@ -6,6 +6,7 @@ This repo houses the end 2 end, integration, full stack selenium tests, ones tha
 
 It is a Node app, could of been a Python one but I don't know Python so I wrote it in Node, you are more than welcome to re-write it in whatever language you like if this offends you.
 
+### Setup
 So the first step is to make sure you have Node installed, preferrably v7.10.0 or above as we use `async`/`await`. If you are using `nvm` simply type:
 
 `nvm use`
@@ -15,6 +16,11 @@ To run:
 1. `npm install`
 2. `npm test`
 
+#### Environment Variables
+The tests require a number of Environment Variables to have been set. The simplest way to set these is to create a
+.env file in the root of the project, based on the example one (`.env.sample`). Any variables in this file will automatically be set.
+
+### Test layout and structure
 There are 2 directories for tests to live in, we have `sequences/` and `tests/`. I have made this distinction to seperate simple tests that represent a sequence of basic interactions exposed through `PageObjects/`, and more indepth complex tests that require a developer to write some JS. 
 
 `sequences/` tests export a JS object which is consumed by `testRunner.js`. Make sure that any sequence test is included in `sequences/index.js`. If it isn't in there, it will not be run.
@@ -33,5 +39,5 @@ I have _tried_ to adhere to a POM selenium model, however classical inheritence 
 
 A reference PageObject can be found at `PageObjects/PlanConfiguration.js` where we are exposing functions like `clickNewBlankDraft` and `configIsEmpty`. `testRunner.js` will pass these functions the particular `driver` instance for that `it` block, which gets re-initialised at the start of every test.
 
-#### Test failures
+### Test failures
 If a test fails, a screenshot is saved to the `screenshots` directory within the project.
