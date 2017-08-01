@@ -24,9 +24,10 @@ const CLEAR_CONFIG_BUTTON = 'button.clear-config';
 
 /**
  * Action to click a button in the PlanConfiguration header with the label 'New Blank Draft'
- * @param {function} driver The driver instance for that test
+ * @param {object} context The context for this test
  */
-async function clickNewBlankDraft( driver ){
+async function clickNewBlankDraft( { driver } ) {
+
   const newBlankDraftWithConfigButton = await driver.wait(until.elementLocated(
     By.xpath("//*[contains(text(), 'New Draft With Config')]")
   ), DEFAULT_WAIT_TIME, 'No new draft with config button found');
@@ -47,10 +48,11 @@ async function clickNewBlankDraft( driver ){
 
 /**
  * Checks that the config is empty
- * @param {function} driver The driver instance for that test
+ * @param {object} context The context for this test
  * @return {(Error|boolean)} returns either an error is the plan name object has length or returns true
  */
-async function configIsEmpty( driver ){
+async function configIsEmpty( { driver } ) {
+
   const emptyYearSelect = await driver.wait(until.elementLocated(
     By.css(EMPTY_YEAR_SELECT)
   ), DEFAULT_WAIT_TIME, `Couldn't find empty year select`);
@@ -80,10 +82,11 @@ async function configIsEmpty( driver ){
 
 /**
  * Checks that the config is empty
- * @param {function} driver The driver instance for that test
+ * @param {object} context The context for this test
  * @return {boolean} returns true if no error is thrown
  */
-async function clearConfigButtonExists( driver ){
+async function clearConfigButtonExists( { driver } ) {
+  
   const clearConfigButton = await driver.wait(until.elementLocated(
     By.xpath("//*[contains(text(), 'Clear Config')]")
   ), DEFAULT_WAIT_TIME, `Couldn't find clear config button`);

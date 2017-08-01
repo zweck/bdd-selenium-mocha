@@ -39,12 +39,16 @@ describe( 'Test runner', () => {
     describe( testSuite.describe, () => {
       testSuite.tests.forEach( test => {
         it( test.it, async () => {
-          for ( let step of test.sequence ){
-            await step( driver, { rootElement: testSuite.rootElement, name: testSuite.name });
+          for ( let step of test.sequence ) {
+            await step({
+              driver,
+              proxy,
+              locator: { rootElement: testSuite.rootElement, name: testSuite.name }
+            });
           }
 
           for ( let assertion of test.asserts ){
-            let result = await assertion( driver );
+            let result = await assertion( { driver } );
             assert.ok( result );
           }
         });
