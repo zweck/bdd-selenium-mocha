@@ -1,4 +1,4 @@
-## Selenium e2e tests
+## Selenium end to end tests
 
 **This code was written by a human and could therefore be much better, please feel free to tear it appart, refactor and generally make it better in PR's**
 

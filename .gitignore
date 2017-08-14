@@ -34,5 +34,5 @@ src/config.prototype.json
 # failure screenshots
 /screenshots
 
-# Local env. files
+# Local env files
 .env
