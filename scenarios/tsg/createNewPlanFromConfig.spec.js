@@ -1,12 +1,13 @@
-const { logInAsAdminUser, pageHasLoadedWithPlan } = require('../../lib/helpers');
-const { goToBusinessGoalDraft } = require('../../lib/navigators');
+const { logInAsAdminUser } = require('../../lib/helpers/userLogin');
+const { pageHasLoadedWithPlan } = require('../../lib/helpers/plans');
+const { goToBusinessGoalDraft } = require('../../lib/helpers/navigators');
 const { 
   rootElement, 
   name, 
-  clickNewBlankDraft, 
+  expandConfigAndClickNewBlankDraft,
   configIsEmpty ,
   clearConfigButtonExists
-} = require('../../PageObjects/PlanConfiguration');
+} = require('../../lib/pageObjects/PlanConfigurationForm');
 
 module.exports = {
   name,
@@ -19,7 +20,7 @@ module.exports = {
         logInAsAdminUser,
         goToBusinessGoalDraft,
         pageHasLoadedWithPlan,
-        clickNewBlankDraft,
+        expandConfigAndClickNewBlankDraft,
       ],
       asserts: [
         configIsEmpty,
@@ -31,7 +32,7 @@ module.exports = {
         logInAsAdminUser,
         goToBusinessGoalDraft,
         pageHasLoadedWithPlan,
-        clickNewBlankDraft,
+        expandConfigAndClickNewBlankDraft,
       ],
       asserts: [
         configIsEmpty,

@@ -2,13 +2,13 @@
 const assert = require( 'assert' );
 const { Builder, promise, } = require( 'selenium-webdriver' );
 const chalk = require( 'chalk' );
-const allTests = require( './sequences' );
+const allTests = require( './scenarios' );
 const { screenshot } = require('./lib/utils.js');
 const Proxy = require('./lib/proxy.js');
 
 promise.USE_PROMISE_MANAGER = false;
 
-console.log(chalk.black.bgGreen.bold(`     Running Sequence Tests     `));
+console.log(chalk.black.bgGreen.bold(`     Running Scenario Tests     `));
 
 describe( 'Test runner', () => {
 

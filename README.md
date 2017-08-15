@@ -37,7 +37,7 @@ All Page Objects should `export`:
 
 I have _tried_ to adhere to a POM selenium model, however classical inheritence and JS is not an especially good fit, even with `ES2015` classes. So I have opted for a more functional route, where our page object modules just export a bunch of functions which perform steps, these steps should not be programatically dependent on preceeding steps, although they semantically might be. 
 
-A reference PageObject can be found at `PageObjects/PlanConfiguration.js` where we are exposing functions like `clickNewBlankDraft` and `configIsEmpty`. `testRunner.js` will pass these functions the particular `driver` instance for that `it` block, which gets re-initialised at the start of every test.
+A reference PageObject can be found at `lib/pageObjects/PlanConfigurationForm.js` where we are exposing functions like `clickNewBlankDraft` and `configIsEmpty`. `testRunner.js` will pass these functions the particular `driver` instance for that `it` block, which gets re-initialised at the start of every test.
 
 ### Test failures
 If a test fails, a screenshot is saved to the `screenshots` directory within the project.

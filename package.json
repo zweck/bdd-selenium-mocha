@@ -7,8 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "npm run lint && npm run sequence-tests && npm run complex-tests",
-    "sequence-tests": "mocha -t 120000 testRunner.js",
+    "test": "npm run lint && npm run scenarios && npm run complex-tests",
+    "scenarios": "mocha -t 120000 testRunner.js",
     "complex-tests": "mocha -t 120000 tests/",
     "lint": "eslint **/*.js"
   },
@@ -20,16 +20,16 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/planixstalent/acceptance-tests#readme",
   "dependencies": {
-    "chalk": "^2.0.1",
+    "chalk": "^2.1.0",
     "chromedriver": "^2.30.1",
     "dotenv": "^4.0.0",
     "http-proxy": "^1.16.2",
     "https": "^1.0.0",
-    "mocha": "^3.4.2",
+    "mocha": "^3.5.0",
     "nodemon": "^1.11.0",
     "selenium-webdriver": "^3.4.0"
   },
   "devDependencies": {
-    "eslint": "^4.3.0"
+    "eslint": "^4.4.1"
   }
 }
