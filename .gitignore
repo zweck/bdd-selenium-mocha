@@ -1,6 +1,5 @@
 # Logs
 npm-debug.log*
-yarn-error.log
 
 # Coverage directory used by tools like istanbul
 coverage
@@ -11,19 +10,9 @@ node_modules
 # Optional eslint cache
 .eslintcache
 
-# Yarn Integrity file
-.yarn-integrity
-
-# Ignore storybook static files
-storybook-static
-
 # Frontend build assets
 build/*
 !build/assets
-
-# Frontend config
-src/config.json
-src/config.prototype.json
 
 # vscode 
 .vscode
@@ -36,3 +25,6 @@ src/config.prototype.json
 
 # Local env files
 .env
+
+# JSDoc
+docs

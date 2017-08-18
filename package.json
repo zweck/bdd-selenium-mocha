@@ -10,7 +10,8 @@
     "test": "npm run lint && npm run scenarios && npm run complex-tests",
     "scenarios": "mocha -t 120000 testRunner.js",
     "complex-tests": "mocha -t 120000 tests/",
-    "lint": "eslint **/*.js"
+    "lint": "eslint **/*.js",
+    "generate-docs": "jsdoc -c jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,8 @@
     "selenium-webdriver": "^3.4.0"
   },
   "devDependencies": {
-    "eslint": "^4.4.1"
+    "docdash": "^0.4.0",
+    "eslint": "^4.4.1",
+    "jsdoc": "^3.5.4"
   }
 }

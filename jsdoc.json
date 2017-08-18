@@ -1,0 +1,22 @@
+{
+  "source": {
+    "include": [ "scenarios/", "tests/", "lib/" ],
+    "includePattern": ".js"
+  },
+  "opts": {
+    "recurse" : true,
+    "destination": "./docs/",
+    "template": "node_modules/docdash",
+    "readme": "./README.md"
+  },
+  "tags": {
+    "allowUnknownTags": false
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "docdash": {
+    "static": [false],  // Display the static members inside the navbar
+    "sort": [true]     // Sort the methods in the navbar
+  }
+}
