@@ -44,6 +44,16 @@ To run just the scenarios, type:
 
 `npm run scenarios`
 
+To run a single scenario type:
+
+`npm run scenarios scenario-file-name`
+
+Do not include the file path, nor file suffixes.
+
+i.e. to run `scenarios/tsh/visitHomePage.spec.js`, type:
+
+`npm run scenarios visitHomePage`
+
 To run just the complex tests, type:
 
 `npm run complex-tests`.

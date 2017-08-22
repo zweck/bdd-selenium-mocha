@@ -1,4 +1,5 @@
 /* eslint-env mocha */
+const path = require('path');
 const assert = require( 'assert' );
 const { Builder, promise, } = require( 'selenium-webdriver' );
 const chalk = require( 'chalk' );
@@ -8,9 +9,7 @@ const Proxy = require('./lib/proxy.js');
 
 promise.USE_PROMISE_MANAGER = false;
 
-console.log(chalk.black.bgGreen.bold(`     Running Scenario Tests     `));
-
-describe( 'Test runner', () => {
+describe( 'Scenario test runner', () => {
 
   let driver;
   let proxy = new Proxy();
@@ -34,8 +33,7 @@ describe( 'Test runner', () => {
     }
   });
 
-  Object.keys( allTests ).forEach( suite => {
-    let testSuite = allTests[suite];
+  const runTestSuite = (testSuite) => {
     describe( testSuite.describe, () => {
       testSuite.tests.forEach( test => {
         it( test.it, async () => {
@@ -54,5 +52,30 @@ describe( 'Test runner', () => {
         });
       });
     });
+  };
+  
+  const runAllTests = () => Object.keys( allTests ).forEach(suite => {
+    let testSuite = allTests[suite];
+    runTestSuite(testSuite);
   });
+
+  // check if we have been passed a single scenario to run. Mocja opts are passed in as args, so
+  // check the last arg. If it is not the name of this file, then assume it is a scenario
+  const singleTest = process.argv[process.argv.length -1];
+  const thisFile = path.basename(__filename);
+
+  if (singleTest !== thisFile) {
+    console.log(chalk.black.bgGreen.bold(`     Running Single Scenario     `));
+    const testSuite = allTests[singleTest];
+    if(testSuite) {
+      runTestSuite(testSuite);
+    }
+    else {
+      console.log(chalk.red(`Could not find spec file with name ${singleTest}`));
+    }
+  }
+  else {
+    console.log(chalk.black.bgGreen.bold(`     Running All Scenario Tests     `));
+    runAllTests();
+  }
 });
