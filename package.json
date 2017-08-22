@@ -8,9 +8,11 @@
   },
   "scripts": {
     "test": "npm run lint && npm run scenarios && npm run complex-tests",
-    "scenarios": "mocha -t 120000 testRunner.js",
-    "complex-tests": "mocha -t 120000 tests/",
+    "scenarios": "mocha testRunner.js",
+    "complex-tests": "mocha test/",
     "lint": "eslint **/*.js",
+    "pretestrail": "npm run lint",
+    "testrail": "./bin/testrail.sh",
     "generate-docs": "jsdoc -c jsdoc.json"
   },
   "repository": {
@@ -27,6 +29,7 @@
     "http-proxy": "^1.16.2",
     "https": "^1.0.0",
     "mocha": "^3.5.0",
+    "mocha-testrail-reporter": "^1.0.12",
     "nodemon": "^1.11.0",
     "selenium-webdriver": "^3.4.0"
   },

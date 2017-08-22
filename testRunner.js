@@ -47,7 +47,7 @@ describe( 'Test runner', () => {
             });
           }
 
-          for ( let assertion of test.asserts ){
+          for ( let assertion of test.asserts ) {
             let result = await assertion( { driver } );
             assert.ok( result );
           }

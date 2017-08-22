@@ -27,7 +27,7 @@ module.exports = {
       ]
     },
     {
-      it: 'should show the Clear Config button in TSG when New Blank Draft is clicked',
+      it: 'C273601 should show the Clear Config button in TSG when New Blank Draft is clicked',
       sequence: [
         logInAsAdminUser,
         goToBusinessGoalDraft,
