@@ -26,6 +26,7 @@
     "chalk": "^2.1.0",
     "chromedriver": "^2.30.1",
     "dotenv": "^4.0.0",
+    "eslint-plugin-require-path-exists": "^1.1.7",
     "http-proxy": "^1.16.2",
     "https": "^1.0.0",
     "mocha": "^3.5.0",

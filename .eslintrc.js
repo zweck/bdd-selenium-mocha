@@ -20,6 +20,9 @@ module.exports = {
       "templateStrings": true
     }
   },
+  "plugins": [
+    "require-path-exists"
+  ],
   // Use recommend ESLint config
   "extends": [
     "eslint:recommended",
@@ -40,6 +43,13 @@ module.exports = {
     "object-curly-spacing": ["error", "always", { "objectsInObjects": false }],
     "array-bracket-spacing": ["error", "always", { "arraysInArrays": false }],
     "no-console": "off",
+    "require-path-exists/exists": [ 2, {
+      "extensions": [
+        "",
+        ".js",
+        ".json"
+      ],
+    }]
   },
   // Add some environments
   "env": {
