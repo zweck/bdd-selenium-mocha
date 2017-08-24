@@ -1,11 +1,11 @@
 const { logInAsAdminUser } = require('../../lib/helpers/userLogin');
 const {  goToBusinessGoalHome } = require('../../lib/helpers/navigators');
-const { 
-  rootElement, 
-  name, 
+const {
+  rootElement,
+  name,
   graphIsPresent,
   tableIsPresent,
-} = require('../../lib/pageObjects/tsgHomepage');
+} = require('../../lib/pageObjects/TsgHomepage');
 
 module.exports = {
   name,

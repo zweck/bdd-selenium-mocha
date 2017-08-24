@@ -1,11 +1,15 @@
 /* eslint-env mocha */
 const path = require('path');
 const assert = require( 'assert' );
-const { Builder, promise, } = require( 'selenium-webdriver' );
+const { Builder, promise, Capabilities } = require( 'selenium-webdriver' );
+const chrome = require( 'selenium-webdriver/chrome' );
 const chalk = require( 'chalk' );
 const allTests = require( './scenarios' );
 const { screenshot } = require('./lib/utils.js');
 const Proxy = require('./lib/proxy.js');
+
+require('dotenv').config();
+const HEADLESS = !!process.env.HEADLESS;
 
 promise.USE_PROMISE_MANAGER = false;
 
@@ -16,10 +20,20 @@ describe( 'Scenario test runner', () => {
 
   before(async () => {
     await proxy.start();
+    const options = new chrome.Options();
+    options.addArguments('window-size=1920,1080');
+
+    if ( HEADLESS ) {
+      options.addArguments('headless');
+      options.addArguments('disable-gpu');
+    }
+
     driver = await new Builder()
       .forBrowser( 'chrome' )
+      .withCapabilities(Capabilities.chrome())
+      .setChromeOptions(options)
       .build();
-    driver.manage().window().setSize(1280, 720);
+
   });
 
   after(async function() {
@@ -53,7 +67,7 @@ describe( 'Scenario test runner', () => {
       });
     });
   };
-  
+
   const runAllTests = () => Object.keys( allTests ).forEach(suite => {
     let testSuite = allTests[suite];
     runTestSuite(testSuite);

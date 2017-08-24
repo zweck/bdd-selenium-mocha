@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "npm run lint && npm run scenarios && npm run complex-tests",
+    "test:headless": "HEADLESS=true npm test",
     "scenarios": "mocha testRunner.js",
     "complex-tests": "mocha test/",
     "lint": "eslint **/*.js",
