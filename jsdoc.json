@@ -1,6 +1,6 @@
 {
   "source": {
-    "include": [ "scenarios/", "tests/", "lib/" ],
+    "include": [ "scenarios/", "test/", "lib/" ],
     "includePattern": ".js"
   },
   "opts": {

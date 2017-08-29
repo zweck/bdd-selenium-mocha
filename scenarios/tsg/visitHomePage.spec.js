@@ -1,8 +1,8 @@
 const { logInAsAdminUser } = require('../../lib/helpers/userLogin');
-const {  goToBusinessGoalHome } = require('../../lib/helpers/navigators');
-const {
-  rootElement,
-  name,
+const {  navigateToTsgDraftPage, navigateToTsgHomePage } = require('../../lib/pageObjects/Navigation');
+const { 
+  rootElement, 
+  name, 
   graphIsPresent,
   tableIsPresent,
 } = require('../../lib/pageObjects/TsgHomepage');
@@ -16,7 +16,8 @@ module.exports = {
       it: 'should show graph and Table are present on the homepage',
       sequence: [
         logInAsAdminUser,
-        goToBusinessGoalHome,
+        navigateToTsgDraftPage, // need to navigate away from home page before being able to navigate back
+        navigateToTsgHomePage,
       ],
       asserts: [
         graphIsPresent,

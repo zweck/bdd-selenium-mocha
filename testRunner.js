@@ -7,6 +7,7 @@ const chalk = require( 'chalk' );
 const allTests = require( './scenarios' );
 const { screenshot } = require('./lib/utils.js');
 const Proxy = require('./lib/proxy.js');
+const error = require('./lib/error');
 
 require('dotenv').config();
 const HEADLESS = !!process.env.HEADLESS;
@@ -52,16 +53,26 @@ describe( 'Scenario test runner', () => {
       testSuite.tests.forEach( test => {
         it( test.it, async () => {
           for ( let step of test.sequence ) {
-            await step({
-              driver,
-              proxy,
-              locator: { rootElement: testSuite.rootElement, name: testSuite.name }
-            });
+            try {
+              await step({
+                driver,
+                proxy,
+                locator: { rootElement: testSuite.rootElement, name: testSuite.name }
+              });
+            }
+            catch(err) {
+              return error({ driver, message:err.message });
+            }
           }
 
           for ( let assertion of test.asserts ) {
-            let result = await assertion( { driver } );
-            assert.ok( result );
+            try {
+              let result = await assertion( { driver } );
+              return assert.ok( result );
+            }
+            catch(err) {
+              return error({ driver, message:err.message });
+            }
           }
         });
       });

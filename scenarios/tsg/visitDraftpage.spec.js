@@ -1,5 +1,5 @@
 const { logInAsAdminUser } = require('../../lib/helpers/userLogin');
-const {  goToBusinessGoalDrafts } = require('../../lib/helpers/navigators');
+const {  navigateToTsgDraftPage } = require('../../lib/pageObjects/Navigation');
 const {
   rootElement,
   name,
@@ -18,7 +18,7 @@ module.exports = {
       it: 'should show Drafts table with relevant headers',
       sequence: [
         logInAsAdminUser,
-        goToBusinessGoalDrafts,
+        navigateToTsgDraftPage,
       ],
       asserts: [
         draftTableIsPresent,
