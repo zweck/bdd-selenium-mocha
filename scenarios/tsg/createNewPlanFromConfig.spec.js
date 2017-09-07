@@ -36,7 +36,7 @@ module.exports = {
       ],
       asserts: [
         configIsEmpty,
-        clearConfigButtonExists
+        clearConfigButtonExists,
       ]
     }
   ]
