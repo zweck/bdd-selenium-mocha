@@ -1,8 +1,8 @@
 const { logInAsAdminUser } = require('../../lib/helpers/userLogin');
 const {  navigateToTsgDraftPage } = require('../../lib/pageObjects/Navigation');
-const {
-  rootElement,
-  name,
+const { 
+  rootElement, 
+  name, 
   draftTableIsPresent,
   editIconPresent,
   deleteIconPresent,
