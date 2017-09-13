@@ -34,7 +34,6 @@ module.exports = {
     "no-template-curly-in-string": "error", // Guard against accidentally using quotes instead of backticks when writing template strings
     "array-callback-return": "error", // Enforce returning from array functions (map, filter, etc)
     "no-eval": "error",
-    "max-params": ["error", 3],
     "max-statements-per-line": ["error", { "max": 1 }],
     "no-param-reassign": "error", // Don't allow reassigning function param variables
     "semi": ["error", "always"],
