@@ -7,7 +7,7 @@ const {
   editIconPresent,
   deleteIconPresent,
   copydraftIconPresent,
-} = require('../../lib/pageObjects/TsgDraftpage');
+} = require('../../lib/pageObjects/tsgDraftpage');
 
 module.exports = {
   name,
