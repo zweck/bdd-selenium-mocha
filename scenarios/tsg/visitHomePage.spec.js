@@ -13,7 +13,7 @@ module.exports = {
   describe: 'Go to homepage and identify the elements',
   tests: [
     {
-      it: 'should show graph and Table are present on the homepage',
+      it: 'should show graph and Table are present on the TSG homepage',
       sequence: [
         logInAsAdminUser,
         navigateToTsgDraftPage, // need to navigate away from home page before being able to navigate back
